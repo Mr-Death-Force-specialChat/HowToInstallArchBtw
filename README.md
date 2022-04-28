@@ -265,7 +265,6 @@ password
 now we will install a script (cuz i hate unautomating my scripts)<br>
 ```
 curl https://raw.githubusercontent.com/Mr-Death-Force-specialChat/archtall/master/install-after.sh -o install-after.sh
-sed -i 's/sed -i \'s\/\\/bash install-after.sh\/\/g' ~\/.bashrc//g' ~/.bashrc
 chmod u+x install-after.sh
 ./install-after.sh
 rm ./install-after.sh
