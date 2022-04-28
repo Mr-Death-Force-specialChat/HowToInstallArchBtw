@@ -274,7 +274,7 @@ and you will have `KDE` installed on your arch install (i recommend `KDE` for be
 also change your hostname<br>
 $host_name is the NEW hostname<br>
 ```
-hostnamectl set-hostname $host_name
+sudo hostnamectl set-hostname $host_name
 ```
 also `pacman` is the package manager<br>
 to install `pacman -S $pkgs` $pkgs contains the package names seperated by ` ` (a space)<br>
