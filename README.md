@@ -244,6 +244,7 @@ sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"/GRUB_CMDLINE_LINUX_DEFAU
 ```
 make config and exit<br>
 ```
+sudo systemctl enable NetworkManager
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
 ```
