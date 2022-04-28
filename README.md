@@ -64,11 +64,11 @@ mkfs.ext4 /dev/sda2
 ```
 now we have some choice do we want to encrypt the disk?<br>
 if yes:<br>
-PHYSVOL is something (E.G. `/dev/mapper/lvm`)<br>
+PHYSVOL is something (E.G. `lvm`)<br>
 VOLGRP is something (E.G. `VOLGRP0`)<br>
 ```
 cryptsetup luksFormat /dev/sda3
-cryptsetup open --type luks /dev/sda3 $PHYSVOL
+cryptsetup open --type luks /dev/sda3 /dev/mapper/$PHYSVOL
 
 pvcreate --dataalignment 1m /dev/mapper/$PHYSVOL
 vgcreate $VOLGRP /dev/mapper/$PHYSVOL
