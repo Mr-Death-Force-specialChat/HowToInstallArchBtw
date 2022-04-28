@@ -217,9 +217,12 @@ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 ```
 this creates the grub locale<br>
 if we encrypted our disk:<br>
+you can get the root $UUID from `blkid /dev/sda3` it will be the Numbers and Letters thing
+$root_part is /dev/disk/by-uuid/$UUID
+$volgrp is $VOLGRP
 ```
 sed -i 's/#GRUB_ENABLE_CRYPTODISK=y/GRUB_ENABLE_CRYPTODISK=y/g' /etc/default/grub
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"/GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=\/dev\/'${ROOT}':'${VOLGRP}':allow-discards loglevel=3"/g' /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"/GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=\/dev\/'${root_part}':'${volgrp}':allow-discards loglevel=3"/g' /etc/default/grub
 ```
 if we didn't encrypt our disk:<br>
 ```
@@ -266,3 +269,4 @@ sudo pacman -S neofetch cmatrix
 ```
 NOW reboot<br>
 congrats you got ARCH LINUX! (now install artix...)
+# CONGRATS!!! (install artix without reading the manual, not sorry RTFM dudes)
