@@ -131,6 +131,11 @@ now we will chroot into our new install<br>
 ```
 arch-chroot /mnt
 ```
+speed up pacman with *co***lo*****rs***<br>
+```
+sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+sed -i 's/^#Color/Color/' /etc/pacman.conf
+```
 now we will install linux<br>
 press enter for the questions<br>
 ```
