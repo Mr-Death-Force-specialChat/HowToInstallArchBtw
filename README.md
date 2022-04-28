@@ -6,8 +6,8 @@ I use arch btw
 ## select the disk
 lsblk<br>
 select one of the disks without a number at the end (for nvme don't ask me) (**WARNING: BE SURE TO USE THE COORECT DISK! DATA *WILL* BE LOST!**)<br>
-in this case im gonna use /dev/sda**BUT BE SURE TO CHANGE IT TO THE CORRECT DEVICE NAME**
-if you want to encrypt the disk (with LUKS) follow this<br>
+in this case im gonna use /dev/sda **BUT BE SURE TO CHANGE IT TO THE CORRECT DEVICE NAME**<br>
+if you want to encrypt the disk (with LUKS ) you can!<br>
 replace $EFI_SYSTEM_PARTITION with what L showed for EFI_SYSTEM_PARTITION (in my case with an old arch iso it is 1)<br>
 replace $Linux_LVM with what L showed for Linux LVM (in my case with an old arch iso it is 30)<br>
 on $CHECK_STRUCTURE<br>
