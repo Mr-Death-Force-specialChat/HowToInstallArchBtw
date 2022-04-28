@@ -252,3 +252,17 @@ chmod u+x install-after.sh
 ./install-after.sh
 rm ./install-after.sh
 ```
+now reboot<br>
+and you will have `KDE` installed on your arch install (i recommend `KDE` for beginners but i like `i3`)<br>
+also change your hostname<br>
+$host_name is the NEW hostname<br>
+```
+hostnamectl set-hostname $host_name
+```
+also `pacman` is the package manager<br>
+to install `pacman -S $pkgs` $pkgs contains the package names seperated by ` ` (a space)<br>
+```
+sudo pacman -S neofetch cmatrix
+```
+NOW reboot<br>
+congrats you got ARCH LINUX! (now install artix...)
