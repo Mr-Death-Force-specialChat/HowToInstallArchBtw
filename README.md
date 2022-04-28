@@ -135,14 +135,17 @@ now we will install linux<br>
 press enter for the questions<br>
 ```
 pacman -S linux linux-headers
+echo 'N'>/VAR_LTS_LINUX_KERNEL
 ```
 if you want lts linux run<br>
 ```
 pacman -S linux-lts linux-lts-headers
+echo 'Y'>/VAR_LTS_LINUX_KERNEL
 ```
 but if you want both<br>
 ```
 pacman -S linux linux-headers linux-lts linux-lts-headers
+echo 'Y'>/VAR_LTS_LINUX_KERNEL
 ```
 now we will install stuff<br>
 ```
