@@ -122,6 +122,7 @@ mkdir /mnt/home
 ```
 now<br>
 ```
+mkdir /mnt/etc
 genfstab -U -p /mnt >> /mnt/etc/fstab
 pacstrap -i /mnt base
 ```
