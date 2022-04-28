@@ -18,34 +18,45 @@ check if everything looks like this: (also $UNKNOWN can be anything)<br>
 /dev/sdX3 2050048 $UNKNOWN $UNKNOWN $UNKNOWN Linux LVM
 ```
 if everything looks **LIKE THAT** then continue if not press `q` then `ENTER` and do everything again<br>
+**READ THIS: each `-` is a new line**
 ```
 fdisk /dev/sda
+-
 g
+-
 n
-
-
+-
+-
+-
 +500M
+-
 t
-
+-
 L
+-
 q
 $EFI_SYSTEM_PARTITION
+-
 n
-
-
+-
+-
 +500M
 n
-
-
-
+-
+-
+-
 t
-
+-
 L
+-
 q
 $Linux_LVM
+-
 p
+-
 $CHECK_STRUCTURE
 w
+-
 ```
 now we will format the partitions<br>
 ```
