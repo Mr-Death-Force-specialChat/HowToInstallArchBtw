@@ -85,13 +85,13 @@ now we have another choice<br>
 do we want a seperate home partition?<br>
 if yes:<br>
 $ROOTSZ is the root fs size<br>
-$HOMESZ is the home fs size Recommended: 100%FREE<br>
+$HOMESZ is the home fs size Recommended: 100%FREE (in case of using 100%FREE use -l instead of -L)<br>
 ```
 lvcreate -L $ROOTSZ $VOLGRP -n root_part
 lvcreate -L $HOMESZ $VOLGRP -n home_part
 ```
 if no:<br>
-$ROOTSZ is the root fs size Recommended: 100%FREE<br>
+$ROOTSZ is the root fs size Recommended: 100%FREE (in case of using 100%FREE use -l instead of -L)<br>
 ```
 lvcreate -L $ROOTSZ $VOLGRP -n root_part
 ```
