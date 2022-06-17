@@ -51,7 +51,7 @@ $UNKNOWN can be anything<br>
 
 if it doesn't look like that then run `q` and restart<br>
 <br>
-now we need to format the boot _drive**s**_<br>
+now we need to format the boot _drive_<br>
 ```
 mkfs.fat -F32 /dev/sda1
 ```
