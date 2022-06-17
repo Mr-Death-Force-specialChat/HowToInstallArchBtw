@@ -96,7 +96,7 @@ mkdir /mnt/home
 mkfs.ext4 /dev/$VGRP/home_part
 mount /dev/$VGRP/home_part /mnt/home
 ```
-well create /boot<br>
+we will create /boot<br>
 ```
 mkdir /mnt/boot
 mount /dev/sda2 /mnt/boot
