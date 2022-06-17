@@ -106,11 +106,11 @@ you can install both!<br>
 ByTheWay press `ENTER` on all questions here<br>
 installing some stuff<br>
 ```
-pacman -S vim base-devel networkmanager lvm2
+pacman -S vim base-devel networkmanager
 ```
 now we will create the initramfs(s)<br>
 ```
-sed -i 's/block filesystems/block  filesystems/g' /etc/mkinitcpio
+sed -i 's/block filesystems/block filesystems/g' /etc/mkinitcpio
 ```
 this will setup our initramfs config<br>
 now if we have the bleedin edge kernel<br>
