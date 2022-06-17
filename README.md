@@ -6,3 +6,9 @@ fdisk write using
 w
 -
 ```
+
+btw when chrooting
+run
+```
+pacman -S vim
+```
