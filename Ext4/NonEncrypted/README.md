@@ -94,7 +94,7 @@ you can install both!<br>
 ByTheWay press `ENTER` on all questions here<br>
 installing some stuff<br>
 ```
-pacman -S vim base-devel networkmanager lvm2
+pacman -S vim base-devel networkmanager
 ```
 now we will create the initramfs(s)<br>
 now if we have the bleedin edge kernel<br>
