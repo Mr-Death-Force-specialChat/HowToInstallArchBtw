@@ -1,4 +1,4 @@
-# HowToInstallArchBtw (LVM)
+# HowToInstallArchBtw (Ext4)
 
 Boot into iso<br>
 select disk<br>
@@ -6,7 +6,6 @@ lsblk<br>
 select one of the disks without a number at the end (for nvme don't ask me) (**WARNING: BE SURE TO USE THE CORRECT DISK! DATA _WILL_ BE LOST!**)<br>
 in this case we will use /dev/sda **BUT BE SURE TO CHANGE IT TO THE CORRECT DEVICE**<br>
 $ESP (EFI SYSTEM PARTITION) is 1<br>
-$LLVM (Linux LVM) is 30<br>
 **each `-` is a new line**<br>
 ```
 fdisk /dev/sda
@@ -35,10 +34,6 @@ n
 -
 -
 -
-t
--
-$LLVM
--
 ```
 
 check the structure using `p`<br>
@@ -46,7 +41,7 @@ $UNKNOWN can be anything<br>
 ```
 /dev/sda1 2048 1026047 10240000 500M EFI System
 /dev/sda2 1026048 2050047 10240000 500M Linux filesystem
-/dev/sda3 2050048 $UNKNOWN $UNKNOWN $UNKNOWN Linux LVM
+/dev/sda3 2050048 $UNKNOWN $UNKNOWN $UNKNOWN Linux filesystem
 ```
 
 if it doesn't look like that then run `q` and restart<br>
@@ -60,26 +55,10 @@ formats the ESP to fat32<br>
 mkfs.ext4 /dev/sda2
 ```
 formats the grub partition to ext4<br>
-$VGRP is the name of the Volume group (for example `volgroup0`)<br>
-```
-pvcreate --dataalignment 1m /dev/sda3
-vgcreate $VGRP /dev/sda3
-```
-lets set some things up<br>
-100%FREE will take all available space in this Volume group<br>
-```
-lvcreate -l 100%FREE $VGRP -n root_part
-```
-something related to lvm<br>
-```
-modprobe dm_mod
-vgscan
-vgchange -ay
-```
 lets mount _and_ format our root partition<br>
 ```
-mkfs.ext4 /dev/$VGRP/root_part
-mount /dev/$VGRP/root_part /mnt
+mkfs.ext4 /dev/sda3
+mount /dev/sda3 /mnt
 ```
 we will make a home directory<br>
 ```
@@ -131,7 +110,7 @@ pacman -S vim base-devel networkmanager lvm2
 ```
 now we will create the initramfs(s)<br>
 ```
-sed -i 's/block filesystems/block lvm2 filesystems/g' /etc/mkinitcpio
+sed -i 's/block filesystems/block  filesystems/g' /etc/mkinitcpio
 ```
 this will setup our initramfs config<br>
 now if we have the bleedin edge kernel<br>

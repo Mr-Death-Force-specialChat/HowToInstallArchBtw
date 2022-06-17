@@ -1,4 +1,4 @@
-# HowToInstallArchBtw (LVM, Encrypted, Home partition + root partition)
+# HowToInstallArchBtw (LVM, Home partition + root partition)
 
 Boot into iso<br>
 select disk<br>
@@ -60,21 +60,15 @@ formats the ESP to fat32<br>
 mkfs.ext4 /dev/sda2
 ```
 formats the grub partition to ext4<br>
-$PVOL is the name of the Physical volume (for example `lvm`)<br>
 $VGRP is the name of the Volume group (for example `volgroup0`)<br>
 ```
-cryptsetup luksFormat /dev/sda3
-cryptsetup open --type luks /dev/sda3 /dev/mapper/$PVOL
-
-pvcreate --dataalignment 1m /dev/mapper/$PVOL
-vgcreate $VGRP /dev/mapper/$PVOL
+pvcreate --dataalignment 1m /dev/sda3
+vgcreate $VGRP /dev/sda3
 ```
-this will encrypt /dev/sda3<br>
-open it<br>
-and set some things up<br>
-$RTSZ is the root partition size<br>
-$HMSZ is the home partition size<br>
-(**WARNING: for using 100%FREE (or using all available space which is recommended for HMSZ) use `-l` instead of `-L`**)<br>
+lets set some things up<br>
+$RTSZ is root partition size<br>
+$HMSZ is home partition size<br>
+(WARNING: for using 100%FREE (or using all available space which is recommended for HMSZ) use -l instead of -L)<br>
 ```
 lvcreate -L $RTSZ $VGRP -n root_part
 lvcreate -L $HMSZ $VGRP -n home_part
@@ -142,7 +136,7 @@ pacman -S vim base-devel networkmanager lvm2
 ```
 now we will create the initramfs(s)<br>
 ```
-sed -i 's/block filesystems/block encrypt lvm2 filesystems/g' /etc/mkinitcpio
+sed -i 's/block filesystems/block lvm2 filesystems/g' /etc/mkinitcpio
 ```
 this will setup our initramfs config<br>
 now if we have the bleedin edge kernel<br>
@@ -197,24 +191,21 @@ grub-install --target=x86_64-efi --bootloader-id=$BOOTID --recheck
 mkdir /boot/grub/locale
 cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 vim /etc/default/grub
-/#GRUB_ENABLE_CRYPTODISK
-x
 /quiet
 xxxxx
-/loglevel
-i
-cryptdevice=/dev/disk/by-uuid/$UUID:$VGRP:allow-discards
-$ESC
 :wq
 sudo systemctl enable NetworkManager
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
 umount /mnt/boot/EFI
 umount /mnt/boot
-umount /mnt/home
 umount /mnt
 ```
 now reboot into arch<br>
+```
+shutdown now
+```
+now start your computer<br>
 login<br>
 and run<br>
 ```
