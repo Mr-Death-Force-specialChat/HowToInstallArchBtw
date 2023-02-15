@@ -90,7 +90,7 @@ arch-chroot /mnt
 ```
 CHangingROOT to our installation<br>
 now we technically installed arch but no linux<br>
-anyway lets fix up pacman!<br>
+anyway lets fix up (IMPROVE NOT FIX) pacman!<br>
 ```
 vim /etc/pacman.conf
 /#ParallelDownloads
