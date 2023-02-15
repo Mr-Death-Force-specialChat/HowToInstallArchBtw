@@ -79,6 +79,12 @@ well download our base packages<br>
 pacstrap -i /mnt base
 ```
 answer Y for all question<br>
+(if it fails because... corrupt stuff or something, try installing archlinux-keyring)<br>
+(
+```
+pacman -Sy archlinux-keyring
+```
+)
 ```
 arch-chroot /mnt
 ```
