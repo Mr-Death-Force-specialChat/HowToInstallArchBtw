@@ -191,6 +191,7 @@ sudo pacman-key --init
 sudo pacman -S archlinux-keyring --noconfirm
 sudo pacman-key --populate archlinux
 ```
+The following bit could be automated using [this](https://github.com/Mr-Death-Force-specialChat/archtall/blob/master/install-after.sh) script from my [archtall](https://github.com/Mr-Death-Force-specialChat/archtall) thing.<br>
 if you have an intel cpu<br>
 ```
 sudo pacman -S --noconfirm --needed intel-ucode
@@ -208,4 +209,4 @@ if we have the lts kernel<br>
 ```
 sudo pacman -S nvidia nvidia-lts nvidia-xconfig
 ```
-now checkout my arch-setup script
+now checkout my [arch-setup](https://github.com/Mr-Death-Force-specialChat/arch-setup/blob/master/setup.sh) script
