@@ -92,6 +92,7 @@ CHangingROOT to our installation<br>
 now we technically installed arch but no linux<br>
 anyway lets fix up (IMPROVE NOT FIX) pacman!<br>
 ```
+pacman -Sy vim
 vim /etc/pacman.conf
 /#ParallelDownloads
 x
