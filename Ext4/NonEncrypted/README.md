@@ -169,8 +169,8 @@ and run<br>
 ```
 sudo rm -r /etc/pacman.d/gnupg
 sudo pacman-key --init
-sudo pacman -S archlinux-keyring --noconfirm
 sudo pacman-key --populate archlinux
+sudo pacman -S archlinux-keyring --noconfirm
 ```
 if you have an intel cpu<br>
 ```
